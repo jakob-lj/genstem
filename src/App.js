@@ -2,13 +2,24 @@ import React from "react";
 //import logo from "./logo.svg";
 import "./App.css";
 import Home from "./components/home";
-//import Join from "./components/join";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Join from "./components/join";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/join">
+            <Join />
+          </Route>
+          <Route path="/create"></Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
