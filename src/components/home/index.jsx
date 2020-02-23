@@ -13,9 +13,11 @@ export default class Home extends Component {
               Join
             </button>
           </Link>
-          <button className="button2" type="button">
-            Create
-          </button>
+          <Link to={'/create'}>
+            <button className="button2" type="button">
+              Create
+            </button>
+          </Link>
         </div>
       </div>
     );
