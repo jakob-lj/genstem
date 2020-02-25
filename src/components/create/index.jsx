@@ -8,7 +8,7 @@ export default class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginPage: 1,
+      loginPage: 0,
       loading: false,
       showError: false,
       error: ""
@@ -85,8 +85,8 @@ export default class Create extends Component {
     if (props.currentState != 1) {
       return null;
     }
+    console.log('viewone');
     return (
-        console.log('viewone')
       <div>
         <div>
           <Input placeholder={"Engangskode"} id={"SSOCode"} />
@@ -94,8 +94,7 @@ export default class Create extends Component {
         <button
           onClick={props.loginWithSSOCode}
           className="button"
-          type="button"
-        >
+          type="button">
           Enter
         </button>
       </div>

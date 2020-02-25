@@ -7,6 +7,7 @@ function isDev() {
   }
   
   function getDomainName() {
+    return 'staging.genstem.jakoblj.xyz:8000';
     if (isDev()) {
       return 'http://localhost:8000';
     }
