@@ -53,7 +53,9 @@ export default class Create extends Component {
     console.log(style);
     return (
       <div style={style}>
-        <span>{props.message}</span>
+        <div className="error">
+          <span>{props.message}</span>
+        </div>
       </div>
     );
   }
@@ -64,7 +66,7 @@ export default class Create extends Component {
         <div>
           <Input placeholder={"E-post"} id={"email"} />
         </div>
-        <button onClick={this.login} className="button" type="button">
+        <button onClick={props.login} className="button" type="button">
           Enter
         </button>
       </div>
@@ -86,18 +88,18 @@ export default class Create extends Component {
 
   render() {
     let views = [this.viewZero, this.viewOne];
+    // {views[this.state.loginPage]()}
     return (
       <div>
         <h1 className="header">Genstem</h1>
         <Container>
+          <this.viewZero login={this.login} />
           <this.Feedback
             message={this.state.error}
             display={this.state.showError}
           />
-          {views[this.state.loginPage]()}
         </Container>
       </div>
     );
   }
 }
-
