@@ -7,11 +7,12 @@ function isDev() {
   }
   
   function getDomainName() {
-    return 'staging.genstem.jakoblj.xyz:8000';
-    if (isDev()) {
-      return 'http://localhost:8000';
-    }
-    return 'https://backend.genstem.jakoblj.com';
+    isDev(); // comment me out please
+    return 'http://staging.backend.genstem.jakoblj.xyz';
+    // if (isDev()) {
+    //   return 'http://localhost:8000';
+    // }
+    // return 'https://backend.genstem.jakoblj.com';
   }
   
   function getToken() {

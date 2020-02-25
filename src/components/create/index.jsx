@@ -66,7 +66,7 @@ export default class Create extends Component {
   }
 
   viewZero(props) {
-    if (props.currentState != 0) {
+    if (props.currentState !== 0) {
       return null;
     }
     return (
@@ -82,7 +82,7 @@ export default class Create extends Component {
   }
 
   viewOne(props) {
-    if (props.currentState != 1) {
+    if (props.currentState !== 1) {
       return null;
     }
     console.log('viewone');
