@@ -13,17 +13,7 @@
   font-size: 50px;
   font-family: "Krona one";
 }
-.container {
-  height: 400px;
-  width: 90%;
-  margin: auto;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-color: #43ade1;
-}
+
 .button:hover {
   -moz-transform: scale(0.9);
   -webkit-transform: scale(0.9);
