@@ -14,6 +14,7 @@ export default class Create extends Component {
       error: ""
     };
     this.login = this.login.bind(this);
+    this.loginWithSSOCode = this.loginWithSSOCode.bind(this);
     this.viewOne = this.viewOne.bind(this);
     this.viewZoer = this.viewZero.bind(this);
   }
@@ -39,6 +40,10 @@ export default class Create extends Component {
       }
     });
     console.log(this.state);
+  }
+
+  loginWithSSOCode() {
+    console.log("yey");
   }
 
   Feedback(props) {
@@ -80,7 +85,21 @@ export default class Create extends Component {
     if (props.currentState != 1) {
       return null;
     }
-    return <div>page two</div>;
+    return (
+        console.log('viewone')
+      <div>
+        <div>
+          <Input placeholder={"Engangskode"} id={"SSOCode"} />
+        </div>
+        <button
+          onClick={props.loginWithSSOCode}
+          className="button"
+          type="button"
+        >
+          Enter
+        </button>
+      </div>
+    );
   }
 
   test() {
@@ -98,8 +117,14 @@ export default class Create extends Component {
       <div>
         <h1 className="header">Genstem</h1>
         <Container>
-          <this.viewZero login={this.login} currentState={this.state.loginPage} />
-          <this.viewOne currentState={this.state.loginPage} />
+          <this.viewZero
+            login={this.login}
+            currentState={this.state.loginPage}
+          />
+          <this.viewOne
+            currentState={this.state.loginPage}
+            login={this.loginWithSSOCode}
+          />
           <this.Feedback
             message={this.state.error}
             display={this.state.showError}
