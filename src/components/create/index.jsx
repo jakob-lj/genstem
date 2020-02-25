@@ -94,13 +94,10 @@ export default class Create extends Component {
             message={this.state.error}
             display={this.state.showError}
           />
-          {<Parent component={views[this.state.loginPage]()} />}
+          {views[this.state.loginPage]()}
         </Container>
       </div>
     );
   }
 }
 
-function Parent(props) {
-  return <div>{props.compoent}</div>;
-}
