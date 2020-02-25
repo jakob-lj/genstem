@@ -8,7 +8,7 @@ export default class Create extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loginPage: 0,
+      loginPage: 1,
       loading: false,
       showError: false,
       error: ""
