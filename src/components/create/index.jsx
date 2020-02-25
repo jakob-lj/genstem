@@ -61,6 +61,9 @@ export default class Create extends Component {
   }
 
   viewZero(props) {
+    if (props.currentState != 0) {
+      return null;
+    }
     return (
       <div>
         <div>
@@ -74,7 +77,10 @@ export default class Create extends Component {
   }
 
   viewOne(props) {
-    return <div></div>;
+    if (props.currentState != 1) {
+      return null;
+    }
+    return <div>page two</div>;
   }
 
   test() {
@@ -87,13 +93,13 @@ export default class Create extends Component {
   }
 
   render() {
-    let views = [this.viewZero, this.viewOne];
     // {views[this.state.loginPage]()}
     return (
       <div>
         <h1 className="header">Genstem</h1>
         <Container>
-          <this.viewZero login={this.login} />
+          <this.viewZero login={this.login} currentState={this.state.loginPage} />
+          <this.viewOne currentState={this.state.loginPage} />
           <this.Feedback
             message={this.state.error}
             display={this.state.showError}
