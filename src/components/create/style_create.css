@@ -2,17 +2,13 @@
   font-size: 20px;
   color: white;
 }
-
-@media only screen and (max-width: 410px) {
+@media only screen and (min-width: 410px) and (max-width: 600px) {
   .error {
-    font-size: 20px;
-    color: white;
+    font-size: 16px;
   }
 }
-
-@media only screen and (max-width: 410px) and (min-width: 600px) {
+@media only screen and (max-width: 410px) {
   .error {
-    font-size: 20px;
-    color: white;
+    font-size: 13px;
   }
 }
