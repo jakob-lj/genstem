@@ -13,6 +13,11 @@ export default function DeveloperTools(props) {
         setRedirect(true);
     }
 
+    function callback(e) {
+        // setRedirect(true);
+        window.location.href = '/';
+    }
+
     useEffect(() => {
         get('/environment/').then(r => {
             setDomain(r.domain);
@@ -37,7 +42,7 @@ export default function DeveloperTools(props) {
     }
     return <Container>
         {inner}
-        <SelectEnvironment cb={() => {setRedirect(true)}} />
+        <SelectEnvironment cb={callback} />
         <button onClick={reset}>Reset localstorage</button>
     </Container>;
 }
