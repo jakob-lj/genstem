@@ -3,6 +3,7 @@ import Input from "./../inputs";
 import "./style_create.css";
 import { post } from "./../../Network/client.js";
 import Container from "./../Container";
+import { Link } from "react-router-dom";
 
 export default class Create extends Component {
   constructor(props) {
@@ -74,6 +75,11 @@ export default class Create extends Component {
         <div>
           <Input placeholder={"E-post"} id={"email"} />
         </div>
+        <Link to={"/home"}>
+          <button className="button" type="button">
+            Back
+          </button>
+        </Link>
         <button onClick={props.login} className="button" type="button">
           Enter
         </button>
@@ -85,7 +91,7 @@ export default class Create extends Component {
     if (props.currentState !== 1) {
       return null;
     }
-    console.log('viewone');
+    console.log("viewone");
     return (
       <div>
         <div>
@@ -94,7 +100,8 @@ export default class Create extends Component {
         <button
           onClick={props.loginWithSSOCode}
           className="button"
-          type="button">
+          type="button"
+        >
           Enter
         </button>
       </div>
