@@ -29,7 +29,7 @@ export function isDev() {
   }
   
   function getToken() {
-    return localStorage.getItem('accessToken');
+    return localStorage.getItem('genstemToken');
   }
   
   
