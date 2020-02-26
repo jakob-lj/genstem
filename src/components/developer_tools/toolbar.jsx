@@ -62,6 +62,7 @@ export default function DeveloperToolBar(props) {
             <Link style={linkStyle} to={'/'}>Home</Link>
             <Link style={linkStyle} to={'/join'}>Join</Link>
             <Link style={linkStyle} to={'/create'}>Create</Link>
+            <Link style={linkStyle} to={'/host'}>Host app</Link>
             <div style={connectedStyle}>
                 {connected}
             </div>
