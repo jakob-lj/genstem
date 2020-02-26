@@ -7,6 +7,7 @@ import Join from "./components/join";
 import Create from './components/create';
 import DeveloperTools from "./components/developer_tools";
 import DevToolBar from './components/developer_tools/toolbar.jsx';
+import Host from './components/HostApp';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/create">
             <Create />
+          </Route>
+          <Route path={'/host'}>
+            <Host />
           </Route>
           <Route path="/dev">
             <DeveloperTools />
