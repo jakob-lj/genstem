@@ -1,6 +1,14 @@
-function isDev() {
+export function isDev() {
     var domain = window.location.href.split('/')[2].split(':')[0];
     if (domain === "localhost" || domain === "127.0.0.1") {
+      return true;
+    }
+    return false;
+  }
+
+  function isStaging() {
+    let stagingVariable = localStorage.getItem('genstemStaging');
+    if (stagingVariable === null | stagingVariable === 'staging') {
       return true;
     }
     return false;
@@ -8,11 +16,16 @@ function isDev() {
   
   function getDomainName() {
     isDev(); // comment me out please
-    return 'http://staging.backend.genstem.jakoblj.xyz';
-    // if (isDev()) {
-    //   return 'http://localhost:8000';
-    // }
-    // return 'https://backend.genstem.jakoblj.com';
+    //
+    //return 'http://localhost:8000';
+    if (isDev()) {
+      if (isStaging()) {
+        return 'http://staging.backend.genstem.jakoblj.xyz';
+      } else {
+        return 'http://localhost:8000';
+      }
+    }
+    return 'https://backend.genstem.jakoblj.com';
   }
   
   function getToken() {

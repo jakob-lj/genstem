@@ -5,10 +5,13 @@ import Home from "./components/home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Join from "./components/join";
 import Create from './components/create';
+import DeveloperTools from "./components/developer_tools";
+import DevToolBar from './components/developer_tools/toolbar.jsx';
 
 function App() {
   return (
     <Router>
+    <DevToolBar />
       <div className="App">
         <Switch>
           <Route path="/join">
@@ -16,6 +19,9 @@ function App() {
           </Route>
           <Route path="/create">
             <Create />
+          </Route>
+          <Route path="/dev">
+            <DeveloperTools />
           </Route>
           <Route path="/">
             <Home />
