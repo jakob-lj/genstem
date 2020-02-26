@@ -97,6 +97,11 @@ export default class Create extends Component {
         <div>
           <Input placeholder={"Engangskode"} id={"SSOCode"} />
         </div>
+        <Link to={"/home"}>
+          <button className="button" type="button">
+            Back
+          </button>
+        </Link>
         <button
           onClick={props.loginWithSSOCode}
           className="button"
