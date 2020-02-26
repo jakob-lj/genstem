@@ -54,7 +54,8 @@ export default function DeveloperToolBar(props) {
     }}>
         <span style={{color: 'white', fontWeight: 'bold'}}>Developer toolbar</span>
         <Link style={linkStyle} to={'/dev'}>Devops</Link>
-        <span style={{color: 'white', fontWeight: 'bold'}}>|</span>
+        <a style={linkStyle} href={'http://staging.backend.genstem.jakoblj.xyz/api/docs/'}>API Docs</a>
+        <span style={{color: 'white', fontWeight: 'bold', margin: '1em'}}>|</span>
         <Link style={linkStyle} to={'/'}>Home</Link>
         <Link style={linkStyle} to={'/join'}>Join</Link>
         <Link style={linkStyle} to={'/create'}>Create</Link>
