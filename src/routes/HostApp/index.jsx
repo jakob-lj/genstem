@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Container from './../../components/Container/index';
 import { get } from '../../Network/client';
+import Modal from '../../components/Modal';
 
 export default function Host(props) {
 
@@ -26,6 +27,9 @@ export default function Host(props) {
     });
 
     return <Container>
+        <Modal visibility={true} loading={true} header={'Legg til nytt event'}>
+            <p>This is modal child</p>
+        </Modal>
         <button onClick={() => alert('implement - and style better pllllz')}>Legg til arrangement</button>
         {eventsDiv}
     </Container>;
