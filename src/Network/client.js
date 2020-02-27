@@ -64,6 +64,13 @@ export function isDev() {
     } else {
       url = `${getDomainName()}${extension}`;
     }
+    let token = getToken();
+    let headers = {};
+    if (token != null) {
+      headers = {
+        Authorization: `Bearer ${token}`
+      };
+    }
     return fetch(url, {
       method: 'GET',
       mode: 'cors', // no-cors, *cors, same-origin
@@ -71,6 +78,7 @@ export function isDev() {
       credentials: 'same-origin', // include, *same-origin, omit
       redirect: 'follow', // manual, *follow, error
       referrer: 'no-referrer', // no-referrer, *client
+      headers: headers
     });
   }
   

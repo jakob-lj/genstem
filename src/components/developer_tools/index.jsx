@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {get, isDev, loginUser} from './../../Network/client.js';
+import {get, getWithOutHandleErr, isDev, loginUser} from './../../Network/client.js';
 import { Redirect } from "react-router-dom";
 import Container from "./../Container";
 
@@ -7,6 +7,7 @@ import Container from "./../Container";
 export default function DeveloperTools(props) {
     let [domain, setDomain] = useState(null);
     let [redirect, setRedirect] = useState(false);
+    let [loggedInAsUser, setLoggedInAsUser] = useState(null);
 
     function reset() {
         localStorage.clear();
@@ -22,8 +23,20 @@ export default function DeveloperTools(props) {
         get('/auth/backdoor/', false).then(r => {
             if (r) {
                 loginUser(r);
+                getCurrentUser();
             } else {
                 alert('only available if backend is in local mode');
+            }
+        });
+    }
+
+    function getCurrentUser() {
+        getWithOutHandleErr('/auth/profile/', false).then( async r => {
+            if (r.status === 200) {
+                let json = await r.json();
+                setLoggedInAsUser(json);
+            } else {
+                setLoggedInAsUser('unathenticated');
             }
         });
     }
@@ -31,7 +44,8 @@ export default function DeveloperTools(props) {
     useEffect(() => {
         get('/environment/').then(r => {
             setDomain(r.domain);
-        })
+        });
+        getCurrentUser();
     }, []);
 
     if (!isDev() | redirect) {
@@ -48,11 +62,21 @@ export default function DeveloperTools(props) {
             Domain: {domain}
         </div>
         </div>
-
     }
+
+    let user = 'loading';
+    if (loggedInAsUser !== null && loggedInAsUser !== 'unathenticated') {
+        user = `${loggedInAsUser.name} - ${loggedInAsUser.email}`
+    } else if (loggedInAsUser === 'unathenticated') {
+        user = 'not logged in';
+    }
+
     return <Container>
         {inner}
         <SelectEnvironment cb={callback} />
+        <div>
+            Logged in as: {user}
+        </div>
         <button onClick={loginAsJoe}>Login as Joe User (admin)</button>
         <button onClick={reset}>Reset localstorage</button>
     </Container>;
