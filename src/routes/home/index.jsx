@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style_home.css";
 import { Link } from "react-router-dom";
-import Container from "./../Container";
+import Container from "./../../components/Container";
 
 export default class Home extends Component {
   render() {

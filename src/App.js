@@ -1,13 +1,13 @@
 import React from "react";
 //import logo from "./logo.svg";
 import "./App.css";
-import Home from "./components/home";
+import Home from "./routes/home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Join from "./components/join";
-import Create from './components/create';
+import Join from "./routes/join";
+import Create from './routes/create';
 import DeveloperTools from "./components/developer_tools";
 import DevToolBar from './components/developer_tools/toolbar.jsx';
-import Host from './components/HostApp';
+import Host from './routes/HostApp';
 import Logout from './Network/Logout';
 
 function App() {

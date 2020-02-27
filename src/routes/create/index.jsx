@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Input from "./../inputs";
+import Input from "./../../components/inputs";
 import "./style_create.css";
 import { post, loginUser } from "./../../Network/client.js";
-import Container from "./../Container";
+import Container from "./../../components/Container";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 

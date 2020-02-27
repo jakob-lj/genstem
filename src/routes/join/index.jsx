@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Container from "./../Container";
+import Container from './../../components/Container';
 
 import "./style_join.css";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Container from './../Container';
+import Container from './../../components/Container/index';
 import { get } from '../../Network/client';
 
 export default function Host(props) {
