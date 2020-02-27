@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {get, isDev} from './../../Network/client.js';
+import {get, isDev, loginUser} from './../../Network/client.js';
 import { Redirect } from "react-router-dom";
 import Container from "./../Container";
 
@@ -16,6 +16,16 @@ export default function DeveloperTools(props) {
     function callback(e) {
         // setRedirect(true);
         window.location.href = '/';
+    }
+
+    function loginAsJoe() {
+        get('/auth/backdoor/', false).then(r => {
+            if (r) {
+                loginUser(r);
+            } else {
+                alert('only available if backend is in local mode');
+            }
+        });
     }
 
     useEffect(() => {
@@ -43,6 +53,7 @@ export default function DeveloperTools(props) {
     return <Container>
         {inner}
         <SelectEnvironment cb={callback} />
+        <button onClick={loginAsJoe}>Login as Joe User (admin)</button>
         <button onClick={reset}>Reset localstorage</button>
     </Container>;
 }

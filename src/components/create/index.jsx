@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Input from "./../inputs";
 import "./style_create.css";
-import { post } from "./../../Network/client.js";
+import { post, loginUser } from "./../../Network/client.js";
 import Container from "./../Container";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
@@ -59,7 +59,7 @@ export default class Create extends Component {
     post("/auth/token/", { id, code }, false).then(r => {
       if (r.ok) {
         // user got logged in
-        localStorage.setItem("genstemToken", r.tokens.access);
+        loginUser(r.tokens.access);
         this.setState({ redirect: "/host" });
       } else if (r.err === "CODE_EXPIRED") {
         this.setState({

@@ -224,3 +224,7 @@ export function isDev() {
     }
     return false;
   }
+
+export function loginUser(token) {
+  localStorage.setItem("genstemToken", token);
+}
