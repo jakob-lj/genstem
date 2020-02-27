@@ -8,6 +8,7 @@ import Create from './components/create';
 import DeveloperTools from "./components/developer_tools";
 import DevToolBar from './components/developer_tools/toolbar.jsx';
 import Host from './components/HostApp';
+import Logout from './Network/Logout';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/dev">
             <DeveloperTools />
+          </Route>
+          <Route path={'/app/logout'} >
+            <Logout />
           </Route>
           <Route path="/">
             <Home />

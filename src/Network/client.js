@@ -81,14 +81,19 @@ export function isDev() {
     } else {
       url = `${getDomainName()}${extension}`;
     }
+    let token = getToken();
+    let headers = {};
+    if (token != null) {
+      headers = {
+        Authorization: `Bearer ${token}`
+      };
+    }
     return fetch(url, {
       method: 'GET',
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
       credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        Authorization: `Bearer ${getToken()}`
-      },
+      headers: headers,
       redirect: 'follow', // manual, *follow, error
       referrer: 'no-referrer', // no-referrer, *client
     }).then(async result=> {
